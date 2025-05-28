@@ -91,7 +91,8 @@ if pagina == "Requisitos Nutricionais":
     st.table(aa_resultado)
 
 # Função compartilhada para leitura e filtro dos ingredientes
-def processar_arquivo_com_filtro_individual(arquivo, titulo, chave_filtro):
+def arquivo(arquivo, titulo, chave_filtro):
+
     try:
         df = pd.read_excel(arquivo)
         col_nome = None
@@ -117,6 +118,8 @@ def processar_arquivo_com_filtro_individual(arquivo, titulo, chave_filtro):
             st.dataframe(df_filtrado, use_container_width=True)
         else:
             st.warning(f"⚠️ Coluna com nome do ingrediente não encontrada em {titulo}")
+            
+
     except FileNotFoundError:
         st.error(f"❌ Arquivo '{arquivo}' não encontrado.")
     except Exception as e:
@@ -125,9 +128,9 @@ def processar_arquivo_com_filtro_individual(arquivo, titulo, chave_filtro):
 # Página 2: Ingredientes - NRC 2001
 if pagina == "Ingredientes - NRC 2001":
     st.title("Ingredientes - NRC 2001")
-    processar_arquivo_com_filtro_individual("Ingredientes_NRC2001.xlsx", "Tabela NRC 2001", "filtro_nrc")
+    arquivo("Ingredientes_NRC2001.xlsx", "Tabela NRC 2001", "filtro_nrc")
 
 # Página 3: Ingredientes - Custo
 if pagina == "Ingredientes - Custo":
     st.title("Ingredientes - Custo")
-    processar_arquivo_com_filtro_individual("Ingredientes - Custo (2).xlsx", "Tabela de Custos", "filtro_custo")
+    arquivo("Ingredientes - Custo (2).xlsx", "Tabela de Custos", "filtro_custo")
