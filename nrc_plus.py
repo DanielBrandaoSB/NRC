@@ -130,4 +130,4 @@ if pagina == "Ingredientes - NRC 2001":
 # Página 3: Ingredientes - Custo
 if pagina == "Ingredientes - Custo":
     st.title("Ingredientes - Custo")
-    processar_arquivo_com_filtro_individual("Ingredientes - Custo (1).xlsx", "Tabela de Custos", "filtro_custo")
+    processar_arquivo_com_filtro_individual("Ingredientes - Custo (2).xlsx", "Tabela de Custos", "filtro_custo")
